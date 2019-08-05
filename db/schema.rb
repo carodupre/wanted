@@ -64,9 +64,9 @@ ActiveRecord::Schema.define(version: 2019_08_05_091038) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "username"
-    t.string "avatar"
-    t.string "phone_number"
+    t.string "username" # not added by Devise gem, added by Wanted team
+    t.string "avatar" # not added by Devise gem, added by Wanted team
+    t.string "phone_number" # not added by Devise gem, added by Wanted team
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
