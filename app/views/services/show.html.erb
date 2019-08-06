@@ -2,6 +2,14 @@
 <p>Find me in app/views/services/show.html.erb</p>
 
 <h1><%= @service.title %>
+<h1><%= @service.description %>
+<h1><%= @service.location %>
+<h1><%= @service.category.name %>
+<h1><%= @service.price_per_hour %>
+<h1><%= @service.photo %>
+
 
 <%= link_to 'Edit service', edit_service_path(@service.id) %>
 <%= link_to 'Delete service', service_path(@service.id), method: :delete %>
+
+
