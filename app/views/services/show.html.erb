@@ -6,7 +6,7 @@
 <h1><%= @service.location %>
 <h1><%= @service.category.name %>
 <h1><%= @service.price_per_hour %>
-<h1><%= @service.photo %>
+<h1><%= cl_image_tag @service.photo, height: 300, width: 400, crop: :fill %>
 
 
 <%= link_to 'Edit service', edit_service_path(@service.id) %>
