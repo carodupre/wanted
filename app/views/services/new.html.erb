@@ -1,2 +1,13 @@
 <h1>Services#new</h1>
 <p>Find me in app/views/services/new.html.erb</p>
+
+<%= simple_form_for @service do |f| %>
+  <%= f.input :title %>
+  <%= f.association :category, as: :select %>
+  <%= f.input :description %>
+  <%= f.input :location, placeholder: 'Area where you can deliver the service.' %>
+  <%= f.input :price_per_hour, hint: 'in dollars' %>
+
+  <%= f.button :submit %>
+<% end %>
+

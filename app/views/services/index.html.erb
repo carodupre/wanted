@@ -1,2 +1,16 @@
 <h1>Services#index</h1>
 <p>Find me in app/views/services/index.html.erb</p>
+
+
+<% @services.each do |service| %>
+    <h2><%= service.title %></h2>
+    <h3>category - <%= service.category.name %></h2>
+    <p><%= service.description %></p>
+    <p><%= service.location %>
+    <p><%= service.price_per_hour %> dollars</p>
+    <p><%= link_to "check it out", service_path(service.id) %></p>
+<% end  %>
+
+<%= link_to 'Add a service', new_service_path %>
+
+<!--       quid bonne syntaxe lignes 7 et 12 --
