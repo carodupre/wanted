@@ -1,2 +1,17 @@
-<h1>Services#show</h1>
-<p>Find me in app/views/services/show.html.erb</p>
+
+<div class="container">
+
+  <h1> <%= @service.title %> </h1>
+  <h2> <%= @service.price_per_hour%> € / h </h2>
+  <h5> Details: <%= @service.description %> </h5>
+  <p> Area: <%= @service.location %> </p>
+
+  <p>
+  <%= link_to 'Edit my service', edit_service_path(params[:id]) %> |
+  <%= link_to 'Destroy that service', service_path(params[:id]), method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Book that service', new_service_booking_path(params[:id]) %>
+  </p>
+
+  <%= link_to 'Back to all services', services_path  %>
+
+</div>

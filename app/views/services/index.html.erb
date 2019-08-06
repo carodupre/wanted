@@ -1,2 +1,12 @@
-<h1>Services#index</h1>
-<p>Find me in app/views/services/index.html.erb</p>
+
+<div class="container">
+
+<h1> All services available at the moment </h1>
+
+  <% @services.each do |x| %>
+    <p> <%= x.title %>: <%= x.price_per_hour %>€ / h - <%= link_to 'see details 🔎', service_path(x.id) %></p>
+  <% end %>
+
+<%= link_to 'Create a new service', new_service_path %>
+
+</div>
