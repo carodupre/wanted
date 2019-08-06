@@ -1,16 +1,31 @@
 <h1>Services#show</h1>
 <p>Find me in app/views/services/show.html.erb</p>
+<div>
+  <ul class="list-inline">
+    <li class="list-inline item"><%= link_to 'Edit service', edit_service_path(@service.id) %></li>
+    <li class="list-inline item"><%= link_to 'Back', services_path %></li>
+    <li class="list-inline item"><%= link_to 'Delete service', service_path(@service.id), method: :delete %></li>
+  </ul>
+</div>
 
-<h1><%= @service.title %>
-<h1><%= @service.description %>
-<h1><%= @service.location %>
-<h1><%= @service.category.name %>
-<h1><%= @service.price_per_hour %>
-<h1><%= cl_image_tag @service.photo, height: 300, width: 400, crop: :fill %>
+<div>
+  <h1><%= @service.title %>
+  <p><%= @service.description %></p>
+  <p><%= @service.location %></h1>
+  <p><%= @service.category.name %></h1>
+  <p><%= @service.price_per_hour %></h1>
+  <div><%= cl_image_tag @service.photo, height: 300, width: 400, crop: :fill %></div>
+</div>
 
+<div>
 
-<%= link_to 'Edit service', edit_service_path(@service.id) %>
-<%= link_to 'Back', services_path %>
-<%= link_to 'Delete service', service_path(@service.id), method: :delete %>
+<h1>Reviews</h1>
+<% @reviews.each do |review| %>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item"><%= review.title%></li>
+    <li class="list-group-item"><%= review.rating%></li>
+    <li class="list-group-item"><%= review.description%></li>
+  </ul>
+<% end %>
 
-
+</div>
