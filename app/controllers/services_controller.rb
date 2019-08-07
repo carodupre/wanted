@@ -6,6 +6,7 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @review = Review.find(params[:review.id])
   end
 
   def new
@@ -26,11 +27,10 @@ class ServicesController < ApplicationController
   end
 
   def update
-    @service.update(service_params)
-    if @service.save
-      redirect_to service_path(@service.id)
+    if @service.update(service_params)
+      redirect_to service_path(@service.id), notice: 'Service was successfully updated.'
     else
-      render "edit"
+      render :edit
     end
   end
 

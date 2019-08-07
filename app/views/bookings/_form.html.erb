@@ -1,0 +1,10 @@
+
+  <%= simple_form_for(@booking, as: :booking, method: :post, url: service_bookings_path(params[:service_id])) do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :duration, collection: [1, 2, 3, 4, 5] %>
+  <%= f.input :address %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+  <% end %>
+
+
+<p> <%= link_to 'Back to all services', services_path %> </p>
