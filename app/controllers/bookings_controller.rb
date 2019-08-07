@@ -2,26 +2,23 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update]
 
   def show
-    @service = Service.find(@booking.service_id)
-    @category = Category.find(@service.category_id)
+    @service = @booking.service
+    @category = @service.category
     @user = User.find(@service.user_id)
   end
 
   def new
     @service = Service.find(params[:service_id])
     @booking = Booking.new
-    if user_signed_in?
-    else
-      redirect_to new_user_session_path
-    end
     @booking.service_id = params[:service_id]
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user_id = current_user.id
-    @booking.service_id = params[:service_id]
-    @booking.total_price = @booking.duration * Service.find(params[:service_id]).price_per_hour
+    @service = Service.find(params[:service_id])
+    @booking.service = @service
+    @booking.user = current_user
+    @booking.total_price = @booking.duration * @service.price_per_hour
     if @booking.save
       redirect_to services_path
     else
@@ -30,10 +27,6 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    if user_signed_in?
-    else
-      redirect_to new_user_session_path
-    end
   end
 
   def update
