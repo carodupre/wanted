@@ -8,13 +8,28 @@
 
 require 'faker'
 
-puts 'Creating 20 fake categories...'
-20.times do
-  categories = Category.new(
-    name:   Faker::Name,
-    )
-  categories.save!
-end
+category_attributes = [
+   {
+    name: 'actor'
+   },
+   {
+    name: 'model'
+   },
+   {
+    name: 'bodyguard'
+   },
+   {
+    name: 'impersonator'
+   },
+   {
+    name: 'musician'
+   },
+   {
+    name: 'comedian'
+   },
+]
+
+Category.create!(category_attributes)
 
 puts 'Creating 20 fake users...'
 20.times do
