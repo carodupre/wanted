@@ -1,16 +1,14 @@
-<h1>Services#new</h1>
-<p>Find me in app/views/services/new.html.erb</p>
 
-<%= simple_form_for @service do |f| %>
-  <%= f.input :title %>
-  <%= f.association :category, as: :select %>
-  <%= f.input :description %>
-  <%= f.input :location, placeholder: 'Area where you can deliver the service.' %>
-  <%= f.input :price_per_hour, hint: 'in dollars' %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
 
-  <%= f.button :submit %>
-<% end %>
+    <h1>Create a new service</h1>
 
+    <%= render 'form', service: @service %>
 
+    <p> <%= link_to 'Back to all services', services_path %> </p>
+
+    </div>
+  </div>
+</div>

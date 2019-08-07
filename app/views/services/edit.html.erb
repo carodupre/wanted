@@ -1,14 +1,14 @@
-<h1>Services#edit</h1>
-<p>Find me in app/views/services/edit.html.erb</p>
 
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
 
-<%= simple_form_for @service do |f| %>
-  <%= f.input :title %>
-  <%= f.association :category, as: :select %>
-  <%= f.input :description %>
-  <%= f.input :location, placeholder: 'Area where you can deliver the service.' %>
-  <%= f.input :price_per_hour, hint: 'in dollars' %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.button :submit %>
-<% end %>
+      <h1>Update your service</h1>
+
+      <%= render 'form', service: @service %>
+
+      <p> <%= link_to 'Back to my service', service_path(params[:id]) %> </p>
+
+    </div>
+  </div>
+</div>
