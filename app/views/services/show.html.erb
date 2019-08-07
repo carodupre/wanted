@@ -15,6 +15,8 @@
   <div><%= cl_image_tag @service.photo, height: 300, width: 400, crop: :fill %></div>
 </div>
 
+<%= link_to "Rent this guy", new_service_booking_path(@service.id) %>
+
 <div>
 
 <h1>Reviews</h1>
