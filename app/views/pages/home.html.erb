@@ -2,7 +2,12 @@
 <p>Find me in app/views/pages/home.html.erb</p> -->
 
 <!-- #Navbar -------------- -->
-
+<% if user_signed_in? %>
+<%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+<% unless user_signed_in? %>
+<%= link_to "Sign Up",  new_user_registration_path %>
+<% end %>
 
 <div class="navbar navbar-expand-sm navbar-light navbar-wanted">
   <%= link_to "#", class: "navbar-brand" do %>
@@ -17,7 +22,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Dashboard", "#", class: "nav-link" %>
+        <%= link_to "Dashboard", user_dashboard_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to "Messages", "#", class: "nav-link" %>
@@ -52,6 +57,13 @@
   </div>
 </div>
 
+
+<p><%= link_to "Browse services", services_path %></p>
+<p><%= link_to "Offer my services", new_service_path %></p>
+<% if policy(Service).create? %>
+  <%= link_to "Create a new service", new_service_path %>
+<% end %>
+
 <!-- Footer ------------->
 
 <div class="footer">
@@ -64,16 +76,3 @@
     Contact Wanted today, to book in your special experience
   </div>
 </div>
-
-# from caro
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<% if current_user.present? %>
-  <%= cl_image_tag current_user.avatar, height: 300, width: 400, crop: :fill %>
-<% end %>
-<% @categories.each do |category| %>
-<%= category.name %>
-  <% end %>
-<%= link_to "I'm looking for a service", services_path %>
-<%= link_to "I'm providing a service", user_dashboard_path %>
-<%= link_to "Sign Up",  new_user_registration_path %>

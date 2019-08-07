@@ -1,6 +1,17 @@
-<h1>user dashboard</h1>
-<%= cl_image_tag @user.avatar %>
-<%= @user.username %>
-<%= @user.email %>
-<%= @user.phone_number %>
+<h1><%= @user.username %>'s dashboard</h1>
 
+<p><%= cl_image_tag @user.avatar %></p>
+<p>Username: <%= @user.username %></p>
+<p>Email address: <%= @user.email %></p>
+<p>Phone number: <%= @user.phone_number %></p>
+
+<% @bookings.each do |booking|%>
+  <p><%= link_to "Booking of the #{booking.start_time}", booking_path(booking.id) %></p>
+<% end %>
+
+<% @been_booked.each do |booking|%>
+  <p><%= link_to "Booking of the #{booking.start_time}", booking_path(booking.id) %></p>
+<% end %>
+
+<%= link_to "Create a new service", new_service_path %>
+<p><%= link_to 'Back to home page', root_path %></p>

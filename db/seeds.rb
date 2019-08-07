@@ -64,7 +64,7 @@ puts 'Creating 20 fake bookings...'
 end
 
 puts 'Creating 20 fake reviews...'
-20.times do
+50.times do
   review = Review.new(
     description: "I am a Rails developer and now oceanically works on PHP Laravel. In Rails, schema.rb is a file that summarizes the database, which is very convenient for a developer to understand the database schema … , for example, what the data type ",
     title:    Faker::Job.title,

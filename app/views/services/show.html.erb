@@ -1,8 +1,14 @@
 <div>
   <ul class="list-inline">
+    <!-- pundit so only owner of a service can edit and delete a service -->
+    <% if policy(@service).edit? %>
     <li class="list-inline item"><%= link_to 'Edit service', edit_service_path(@service.id) %></li>
+    <% end %>
     <li class="list-inline item"><%= link_to 'Back', services_path %></li>
-    <li class="list-inline item"><%= link_to 'Delete service', service_path(@service.id), method: :delete %></li>
+    <% if policy(@service).destroy? %>
+    <li class="list-inline item"><%= link_to 'Delete service', @service, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </li>
   </ul>
 </div>
 
@@ -15,7 +21,10 @@
   <div><%= cl_image_tag @service.photo, height: 300, width: 400, crop: :fill %></div>
 </div>
 
+<!-- pundit so someone cannot rent his own service -->
+<% unless policy(@service).update? %>
 <%= link_to "Rent this guy", new_service_booking_path(@service.id) %>
+<% end %>
 
 <div>
 

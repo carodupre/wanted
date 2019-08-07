@@ -19,4 +19,3 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:title, :description, :booking_id)
   end
 end
-
