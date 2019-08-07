@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary', '~> 1.9.1'
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
@@ -16,6 +18,8 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'devise'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

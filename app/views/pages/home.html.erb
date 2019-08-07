@@ -65,5 +65,15 @@
   </div>
 </div>
 
-
-
+# from caro
+<h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+<% if current_user.present? %>
+  <%= cl_image_tag current_user.avatar, height: 300, width: 400, crop: :fill %>
+<% end %>
+<% @categories.each do |category| %>
+<%= category.name %>
+  <% end %>
+<%= link_to "I'm looking for a service", services_path %>
+<%= link_to "I'm providing a service", user_dashboard_path %>
+<%= link_to "Sign Up",  new_user_registration_path %>
