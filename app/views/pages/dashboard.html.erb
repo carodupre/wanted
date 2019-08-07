@@ -11,7 +11,15 @@
   </ul>
 <h2>Your Bookings</h2>
   <ul>
-
+      <%  @bookings.each do |booking| %>
+      <li>
+        <%= booking.start_time %>
+        <%= booking.service.title %>
+        <%= booking.duration %>
+        <%= booking.total_price %>
+        <%= booking.address %>
+      </li>
+      <% end %>
   </ul>
 <h2>Your Services</h2>
   <ul>
