@@ -1,5 +1,20 @@
+<body>
 <h1>user dashboard</h1>
-<%= cl_image_tag @user.avatar %>
-<%= @user.username %>
-<%= @user.email %>
-<%= @user.phone_number %>
+<span>
+  <ul>
+    <li><%= cl_image_tag @user.avatar %></li>
+    <li><%= @user.username %></li>
+    <li><%= @user.email %></li>
+    <li><%= @user.phone_number %></li>
+    <li><%= link_to 'Edit my Profile', edit_user_registration_path %></li>
+  </ul>
+<h2>Your Bookings</h2>
+  <ul>
+
+  </ul>
+<h2>Your Services</h2>
+  <ul>
+    <li><%= link_to 'Create a Service', new_service_path %></li>
+  </ul>
+</span>
+</body>
