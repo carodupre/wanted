@@ -18,12 +18,26 @@
         <%= booking.duration %>
         <%= booking.total_price %>
         <%= booking.address %>
+        <%= link_to 'leave review', new_booking_review_path(booking)  %>
+        <%= link_to 'delete booking', booking_path(booking), method: :delete  %>
+
       </li>
+
       <% end %>
   </ul>
 <h2>Your Services</h2>
+<%= link_to 'Create a Service', new_service_path %>
   <ul>
-    <li><%= link_to 'Create a Service', new_service_path %></li>
+    <% @services.each do |service| %>
+    <li>
+    <%= service.title %>
+    <%= service.price_per_hour %>
+    <%= service.description %>
+    <%= service.location %>
+    </li>
+    <%= link_to 'Remove Service', service_path(service), method: :delete %>
+    <% end %>
+
   </ul>
 </span>
 </body>
