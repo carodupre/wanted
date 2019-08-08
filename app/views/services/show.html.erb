@@ -28,11 +28,16 @@
 
 <div>
 
-<h1>Reviews</h1>
-<% @reviews.each do |review| %>
-  <ul class="list-group list-group-horizontal">
-    <li class="list-group-item"><%= review.title%></li>
-    <li class="list-group-item"><%= review.rating%></li>
-    <li class="list-group-item"><%= review.description%></li>
-  </ul>
+<% if @reviews.empty? %>
+  <p>That service hasn't been reviewed yet</p>
+<% else %>
+  <h1>Reviews</h1>
+  <% @reviews.each do |review| %>
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item"><%= review.title%></li>
+      <li class="list-group-item"><%= review.rating%></li>
+      <li class="list-group-item"><%= review.description%></li>
+    </ul>
+  <% end %>
+
 <% end %>
