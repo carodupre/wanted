@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def show
     @service = Service.find(@booking.service_id)
@@ -36,6 +36,11 @@ class BookingsController < ApplicationController
       render 'edit'
     end
   end
+
+#  def destroy
+#    @booking.destroy
+#    redirect_to user_dashboard_path
+#  end
 
   private
 

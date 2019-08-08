@@ -17,7 +17,7 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
     @service.user_id = current_user.id
     if @service.save
-      redirect_to service_path(@service.id)
+      redirect_to user_dashboard_path
     else
       render 'new'
     end
@@ -36,7 +36,7 @@ class ServicesController < ApplicationController
 
   def destroy
     @service.destroy
-    redirect_to services_path
+      redirect_to user_dashboard_path
   end
 
   private

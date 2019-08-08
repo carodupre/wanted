@@ -83,4 +83,9 @@
   <% end %>
 <%= link_to "I'm looking for a service", services_path %>
 <%= link_to "I'm providing a service", user_dashboard_path %>
-<%= link_to "Sign Up",  new_user_registration_path %> -->
+
+<% if user_signed_in? %>
+  <%= link_to 'signout', destroy_user_session_path, method: :delete  %>
+<% else %>
+  <%= link_to "Sign Up",  new_user_registration_path %>
+<% end %>
