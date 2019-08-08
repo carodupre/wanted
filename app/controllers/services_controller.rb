@@ -11,7 +11,7 @@ class ServicesController < ApplicationController
         lat: service.latitude,
         lng: service.longitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { service: service }),
-        # image_url: helpers.asset_url('./assets/images/man_map_icon.png')
+        image_url: helpers.asset_url('man_map_icon.png')
       }
     end
   end
