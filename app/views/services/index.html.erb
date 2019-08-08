@@ -1,7 +1,8 @@
 
 <div class="container">
 
-<h1> All services available at the moment </h1>
+<h1> All services available at the moment</h1>
+<p>
 
 <div
   id="map"
@@ -33,10 +34,6 @@
 <!-- pundit above -->
 
 <% end  %>
-
-<% if policy(Service).create? %>
-  <%= link_to "Create a new service", new_service_path %>
-<% end %>
 
 </div>
 

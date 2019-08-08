@@ -7,6 +7,16 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <% if user_signed_in? %>
+    <% if policy(Service).create? %>
+      <%= link_to "Create a new service", new_service_path %>
+    <% end %>
+    <% else %>
+    <% if policy(Service).create? %>
+      <%= link_to "Sign in and create a new service", new_service_path %>
+    <% end %>
+  <% end %>
+  </p>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
