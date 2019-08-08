@@ -9,6 +9,10 @@ class BookingPolicy < ApplicationPolicy
     user_is_owner_or_admin? || user_is_professional?
   end
 
+  def create?
+    true
+  end
+
   def destroy?
     user_is_owner_or_admin?
   end
