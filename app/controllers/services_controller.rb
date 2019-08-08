@@ -2,8 +2,21 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
+
     @services = policy_scope(Service)
+
+    @geocoded_services = Service.geocoded #returns services with coordinates
+
+    @markers = @geocoded_services.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { service: service }),
+        image_url: helpers.asset_url('man_map_icon.png')
+      }
+    end
   end
+
 
   def show
     @reviews = @service.reviews
