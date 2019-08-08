@@ -3,6 +3,16 @@ class ServicesController < ApplicationController
 
   def index
     @services = Service.all
+
+    @services = Service.geocoded #returns services with coordinates
+
+    @markers = @services.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { service: service })
+      }
+    end
   end
 
   def show
