@@ -2,12 +2,6 @@
 <p>Find me in app/views/pages/home.html.erb</p> -->
 
 <!-- #Navbar -------------- -->
-<% if user_signed_in? %>
-<%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-<% unless user_signed_in? %>
-<%= link_to "Sign Up",  new_user_registration_path %>
-<% end %>
 
 <!-- -------------Banner---------------------- -->
 
@@ -17,8 +11,8 @@
     <p>(Huffington Post April 2019)</p>
     <!-- <a href="..." button type="button" class="btn btn-primary btn-lg btn-block">Category</a> -->
     <div class="text-center py-3">
-      <a href="..." class="mr-2 btn btn-lg btn-primary">Buy a Service</a>
-      <a href="..." class="btn btn-lg btn-primary">Sell a Service</a>
+      <a href="/services" class="mr-2 btn btn-lg btn-primary">Buy a Service</a>
+      <a href="/services/new" class="btn btn-lg btn-primary">Sell a Service</a>
     </div>
 
   </div>
