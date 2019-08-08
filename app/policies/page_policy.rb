@@ -6,7 +6,7 @@ class PagePolicy < ApplicationPolicy
   end
 
   def home?
-    true
+    return true
   end
 
   def dashboard?
