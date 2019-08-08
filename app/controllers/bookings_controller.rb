@@ -2,9 +2,9 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update]
 
   def show
+    @service = Service.find(@booking.service_id)
     @booking = Booking.find(params[:id])
-    @category = @service.category
-    @user = User.find(@service.user_id)
+    @review = Review.new
   end
 
   def new
@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.total_price = @booking.duration * @service.price_per_hour
     if @booking.save
-      redirect_to services_path
+      redirect_to booking_path(@booking.id)
     else
       render 'new'
     end
