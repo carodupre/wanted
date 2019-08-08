@@ -2,10 +2,14 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
-
     @services = policy_scope(Service)
+    if params[:query].present?
+      @services = Service.search_by_title_and_description(params[:query])
+    else
+      @services
+    end
 
-    @geocoded_services = Service.geocoded #returns services with coordinates
+    @geocoded_services = @services.geocoded #returns services with coordinates
 
     @markers = @geocoded_services.map do |service|
       {

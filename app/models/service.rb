@@ -12,4 +12,12 @@ class Service < ApplicationRecord
   validates :title, uniqueness: { scope: :location }
   # validates :description, length: { in: 20..100 }
   mount_uploader :photo, PhotoUploader
+
+  include PgSearch
+  pg_search_scope :search_by_title_and_description,
+    against: [ :title, :description ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
 end

@@ -5,16 +5,25 @@
 
 <!-- -------------Banner---------------------- -->
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.pexels.com/photo/people-wearing-denim-jeans-1353361/);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1353361/pexels-photo-1353361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);">
   <div class="container">
     <h1>World renowned <strong> "Wanted" cater for all of your entertainment requirements</strong>!</h1>
     <p>(Huffington Post April 2019)</p>
     <!-- <a href="..." button type="button" class="btn btn-primary btn-lg btn-block">Category</a> -->
-    <div class="text-center py-3">
+    <%= form_tag services_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "What can we help you find today?"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+
+<!--     <div class="text-center py-3">
       <a href="/services" class="mr-2 btn btn-lg btn-primary">Buy a Service</a>
       <a href="/services/new" class="btn btn-lg btn-primary">Sell a Service</a>
     </div>
-
+ -->
   </div>
 </div>
 
