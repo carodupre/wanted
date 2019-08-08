@@ -2,9 +2,10 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def show
-    @service = Service.find(@booking.service_id)
     @booking = Booking.find(params[:id])
+    @service = Service.find(@booking.service_id)
     @review = Review.new
+    authorize @booking
   end
 
   def new
