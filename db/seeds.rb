@@ -26,7 +26,7 @@ Category.create!(category_attributes)
 puts 'Creating 20 fake users...'
 20.times do
   user = User.new(
-    username:    Faker::Name.name,
+    username:    Faker::Name.unique.name,
     password: "password",
     email: Faker::Internet.email,
     phone_number: Faker::PhoneNumber,
@@ -35,9 +35,9 @@ puts 'Creating 20 fake users...'
 end
 
 user = User.new(
-  username: "wanted",
+  username: Faker::Internet.username,
   password: "password",
-  email: "wanted@gmail.com",
+  email: Faker::Internet.email,
   phone_number: Faker::PhoneNumber,
 )
 user.save!
@@ -51,8 +51,8 @@ puts 'Creating 20 fake services...'
     description: Faker::Job.field,
     user: User.all.sample,
     category: Category.all.sample,
-    photo: Faker::LoremFlickr.image
   )
+  service.remote_photo_url = Faker::LoremPixel.image
   service.save!
 end
 
