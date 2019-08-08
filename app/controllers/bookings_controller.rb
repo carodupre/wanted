@@ -11,11 +11,13 @@ class BookingsController < ApplicationController
   def new
     @service = Service.find(params[:service_id])
     @booking = Booking.new
+    authorize @booking
     @booking.service_id = params[:service_id]
   end
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @service = Service.find(params[:service_id])
     @booking.service = @service
     @booking.user = current_user
