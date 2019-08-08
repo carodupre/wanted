@@ -17,4 +17,5 @@
 <%= render "reviews/new", booking: @booking, review: @review %>
 
 <p><%= link_to 'Edit the address of my booking', edit_booking_path(params[:id]) %></p>
-<p><%= link_to 'Back to my dashboard (for now just services, to be changed)', services_path %></p>
+
+<p><%= link_to 'Back to my dashboard ', user_dashboard_path %></p>
