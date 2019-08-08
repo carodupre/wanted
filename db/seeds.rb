@@ -51,7 +51,7 @@ puts 'Creating 20 fake services...'
     description: Faker::Job.field,
     user: User.all.sample,
     category: Category.all.sample,
-    photo: "https://picsum.photos/id/237/200/300"
+    photo: photo: Faker::LoremFlickr.image
   )
   service.save!
 end
