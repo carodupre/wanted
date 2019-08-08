@@ -1,20 +1,23 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def show
-    @service = Service.find(@booking.service_id)
     @booking = Booking.find(params[:id])
+    @service = Service.find(@booking.service_id)
     @review = Review.new
+    authorize @booking
   end
 
   def new
     @service = Service.find(params[:service_id])
     @booking = Booking.new
+    authorize @booking
     @booking.service_id = params[:service_id]
   end
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @service = Service.find(params[:service_id])
     @booking.service = @service
     @booking.user = current_user
@@ -36,6 +39,11 @@ class BookingsController < ApplicationController
       render 'edit'
     end
   end
+
+#  def destroy
+#    @booking.destroy
+#    redirect_to user_dashboard_path
+#  end
 
   private
 

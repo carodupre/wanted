@@ -2,11 +2,12 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    @services = Service.all
 
-    @services = Service.geocoded #returns services with coordinates
+    @services = policy_scope(Service)
 
-    @markers = @services.map do |service|
+    @geocoded_services = Service.geocoded #returns services with coordinates
+
+    @markers = @geocoded_services.map do |service|
       {
         lat: service.latitude,
         lng: service.longitude,
@@ -16,28 +17,34 @@ class ServicesController < ApplicationController
     end
   end
 
+
   def show
     @reviews = @service.reviews
+    authorize @service
   end
 
   def new
     @service = Service.new
+    authorize @service
   end
 
   def create
     @service = Service.new(service_params)
+    authorize @service
     @service.user_id = current_user.id
     if @service.save
-      redirect_to service_path(@service.id)
+      redirect_to user_dashboard_path
     else
       render 'new'
     end
   end
 
   def edit
+    authorize @service
   end
 
   def update
+    authorize @service
     if @service.update(service_params)
       redirect_to service_path(@service.id), notice: 'Service was successfully updated.'
     else
@@ -46,8 +53,9 @@ class ServicesController < ApplicationController
   end
 
   def destroy
+    authorize @service
     @service.destroy
-    redirect_to services_path
+      redirect_to user_dashboard_path
   end
 
   private
@@ -59,5 +67,4 @@ class ServicesController < ApplicationController
   def service_params
     params.require(:service).permit(:title, :price_per_hour, :photo, :location, :description, :category_id)
   end
-
 end

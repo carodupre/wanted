@@ -3,41 +3,32 @@
 
 <!-- #Navbar -------------- -->
 
+<!-- -------------Banner---------------------- -->
 
-<div class="navbar navbar-expand-sm navbar-light navbar-wanted">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://www.shutterstock.com/image-vector/people-connect-logo-template-423790477" %>
-  <% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>World renowned <strong> "Wanted" cater for all of your entertainment requirements</strong>!</h1>
+    <p>(Huffington Post April 2019)</p>
+    <!-- <a href="..." button type="button" class="btn btn-primary btn-lg btn-block">Category</a> -->
+    <div class="text-center py-3">
+      <a href="/services" class="mr-2 btn btn-lg btn-primary">Buy a Service</a>
+      <a href="/services/new" class="btn btn-lg btn-primary">Sell a Service</a>
+    </div>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Dashboard", "#", class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Messages", "#", class: "nav-link" %>
-      </li>
-      <li class="nav-item dropdown">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Profile", "#", class: "dropdown-item" %>
-          <%= link_to "Log Out", "#", class: "dropdown-item" %>
-        </div>
-      </li>
-    </ul>
   </div>
 </div>
 
-<!-- Cards --------- Easy find ----------- -->
+<!-- -------------------------------------------- -->
 
-<div class="prospect request">
-  What can we help you find today?
+<!-- Cards --------- Easy find ----------- -->
+<div class="container my-4">
+  <div class="prospect request">
+  <strong>What can we help you find today?</strong>
+  <h1>Take a look below <strong>at </strong> our top trending <strong> offerings!</strong>!</h1> </h1>
+  </div>
 </div>
+<div class="container">
+
 <div class="cards">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
     Musician
@@ -50,30 +41,31 @@
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
     Model
   </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Impersinator
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+    Actor
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+    Motivational Speaker
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+    Coach
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+    Trainer
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+    Magician
+  </div>
+</div>
 </div>
 
-<!-- Footer ------------->
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    Contact Wanted today, to book in your special experience
-  </div>
 </div>
-
-# from caro
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<% if current_user.present? %>
-  <%= cl_image_tag current_user.avatar, height: 300, width: 400, crop: :fill %>
-<% end %>
-<% @categories.each do |category| %>
-<%= category.name %>
-  <% end %>
-<%= link_to "I'm looking for a service", services_path %>
-<%= link_to "I'm providing a service", user_dashboard_path %>
-<%= link_to "Sign Up",  new_user_registration_path %>
