@@ -34,6 +34,14 @@ puts 'Creating 20 fake users...'
   user.save!
 end
 
+user = User.new(
+  username: "wanted",
+  password: "password",
+  email: "wanted@gmail.com",
+  phone_number: Faker::PhoneNumber,
+)
+user.save!
+
 puts 'Creating 20 fake services...'
 20.times do
   service = Service.new(
