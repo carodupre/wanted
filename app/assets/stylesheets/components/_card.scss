@@ -23,6 +23,11 @@
   }
 
 
+.service-details p {
+  font-weight: 16px;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

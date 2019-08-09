@@ -4,9 +4,10 @@
 
   <div class="cards-index mx-4">
       <% @services.each do |service| %>
+          <div class="card-service" >
         <%= link_to service_path(service.id) do %>
-          <div class="card-service">
-            <%= cl_image_tag service.photo, width: 400, crop: :fill %>
+            <%= cl_image_tag service.photo, width: 400, height: 200, crop: :fill %>
+        <% end %>
             <div class="card-service-infos">
               <div>
                 <h2><%= service.title %></h2>
@@ -25,8 +26,6 @@
               <%= cl_image_tag service.user.avatar, class: "avatar"%>
             </div>
           </div>
-        <% end %>
-
       <% end  %>
   </div>
   <div
