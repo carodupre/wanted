@@ -52,7 +52,7 @@ puts 'Creating 20 fake services...'
     user: User.all.sample,
     category: Category.all.sample,
   )
-  service.remote_photo_url = Faker::LoremPixel.image
+  # service.remote_photo_url = Faker::LoremPixel.image
   service.save!
 end
 

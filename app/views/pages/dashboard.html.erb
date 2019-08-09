@@ -37,7 +37,9 @@
     <%= service.price_per_hour %>
     <%= service.description %>
     <%= service.location %>
-    <%= link_to 'Remove Service', service_path(service), method: :delete %>
+    <%= link_to 'Details', service_path(service) %>
+    <%= link_to "Edit", edit_service_path(service) %>
+    <%= link_to 'Remove', service_path(service), method: :delete %>
     </li>
     <% end %>
   </ul>
