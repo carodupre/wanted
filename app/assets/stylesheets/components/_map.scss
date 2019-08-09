@@ -6,3 +6,99 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+
+
+#map {
+  position: sticky;
+  top: 57px;
+}
+
+.main-container{
+  display: flex;
+}
+
+.cards-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  a {
+    text-decoration: none;
+    color: #622D32;
+    }
+  }
+
+.card-service {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-service > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-service h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-service p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-service .card-service-infos {
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-service-infos .card-service-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards-index {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards-index {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards-index {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards-index {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards-index {
+    grid-template-columns: 1fr 1fr;
+  }
+}
