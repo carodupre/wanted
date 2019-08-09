@@ -1,7 +1,7 @@
 
 <div class="container">
 
-<h1> All services available at the moment</h1>
+<h1 id="page-title"> All services available at the moment</h1>
 <p>
 
 <div
@@ -13,11 +13,11 @@
 ></div>
 
 <% @services.each do |service| %>
-    <h2><%= service.title %></h2>
-    <h3>category: <%= service.category.name %></h2>
-    <p>description: <%= service.description %></p>
-    <p>location: <%= service.location %>
-    <p><%= service.price_per_hour %> dollars / hour </p>
+    <h2 id="logo-style"><%= service.title %></h2>
+    <h3 id="body-header">category: <%= service.category.name %></h2>
+    <p  id="body-header">description: <%= service.description %></p>
+    <p  id="body-header">location: <%= service.location %>
+    <p  id="body-header"><%= service.price_per_hour %> dollars / hour </p>
     <div>
       <%= cl_image_tag service.photo, height: 300, width: 400, crop: :fill %>
     </div>
