@@ -8,11 +8,17 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <%= link_to "Services", services_path %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+
+
+  <%= link_to "Services", services_path, class: "nav-link pr-5" %>
 
   <% if user_signed_in? %>
     <% if policy(Service).create? %>
-      <%= link_to "Offer a service", new_service_path %>
+
+      <%= link_to "Offer a service", new_service_path, class: "nav-link pr-5" %>
     <% end %>
     <% else %>
     <% if policy(Service).create? %>
@@ -21,16 +27,14 @@
   <% end %>
   </p>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-       <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+       <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link pr-5" %>
       <% else %>
         <li class="nav-item active">
-        <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "nav-link pr-5" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+        <%= link_to "Sign In", new_user_session_path, class: "nav-link pr-5" %>
       </li>
       <% end%>
 

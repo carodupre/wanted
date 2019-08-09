@@ -23,7 +23,7 @@
 
 <!-- pundit so someone cannot rent his own service -->
 <% unless policy(@service).update? %>
-<%= link_to "Rent this guy", new_service_booking_path(@service.id) %>
+<%= link_to "Hire!", new_service_booking_path(@service.id), class: 'btn btn-primary' %>
 <% end %>
 
 <div>
