@@ -14,8 +14,14 @@
 
 <h1>Total price: <%= @booking.total_price %> € (<%= @service.price_per_hour %>€ for <%= @booking.duration %> hours)</h1>
 
-<%= render "reviews/new", booking: @booking, review: @review %>
 
-<p><%= link_to 'Edit the address of my booking', edit_booking_path(params[:id]) %></p>
+<% if DateTime.now >= @booking.start_time %>
 
-<p><%= link_to 'Back to my dashboard ', user_dashboard_path %></p>
+  <%= render "reviews/new", booking: @booking, review: @review %>
+
+  <p><%= link_to 'Edit the address of my booking', edit_booking_path(params[:id]) %></p>
+
+  <p><%= link_to 'Back to my dashboard ', user_dashboard_path %></p>
+
+<% else %>
+<% end %>
