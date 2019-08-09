@@ -1,51 +1,57 @@
 <body>
-<h1>user dashboard</h1>
 
 
-<span>
-  <ul>
-    <li><%= cl_image_tag @user.avatar %></li>
-    <li><%= @user.username %></li>
-    <li><%= @user.email %></li>
-    <li><%= @user.phone_number %></li>
-    <li><%= link_to 'Edit my Profile', edit_user_registration_path %></li>
-  </ul>
-<h2>Your Bookings</h2>
-  <ul>
-      <%  @bookings.each do |booking| %>
-      <li>
-        <%= booking.start_time %>
-        <%= booking.service.title %>
-        <%= booking.duration %>
-        <%= booking.total_price %>
-        <%= booking.address %>
-          <!-- first solution to only display the booking that hasn't been rated yet-->
-          <%# if @reviews.where(booking_id: booking.id).empty? %>
-          <!-- second solution to only display the booking that hasn't been rated yet -->
-          <% unless booking.review != nil? %>
-            <%= link_to 'leave review', new_booking_review_path(booking)%>
-          <% end %>
-      </li>
+  <span>
+    <div class="card-deck-wrapper">
+      <div class="card-grid">
+        <div class="card1 ml-5">
+          <%= cl_image_tag @user.avatar, width: 200, id: 'dash-img' %>
+          <div class="card-body">
+            <h5 class="card-title"><%= @user.username %></h5>
+            <p class="card-text"><%= @user.email %></p>
+            <p class="card-text"><%= @user.phone_number %></p>
+            <div class="btn btn-primary"><%= link_to 'Edit my Profile', edit_user_registration_path %></div>
+          </div>
+        </div>
+        <div class="card2" style="width: 50rem;">
+          <div class="card-body">
+            <h1>Your Dashboard</h1>
 
-      <% end %>
-  </ul>
-<h2>Your Services</h2>
-  <ul>
-    <% @services.each do |service| %>
-    <li>
-    <%= service.title %>
-    <%= service.price_per_hour %>
-    <%= service.description %>
-    <%= service.location %>
-    <%= link_to 'Details', service_path(service) %>
-    <%= link_to "Edit", edit_service_path(service) %>
-    <%= link_to 'Remove', service_path(service), method: :delete %>
-    </li>
-    <% end %>
-  </ul>
+            <h2>Your Bookings</h2>
+            <ul class="ul1">
+              <%  @bookings.each do |booking| %>
+              <li>
+                <%= booking.start_time %>
+                <%= booking.service.title %>
+                <%= booking.duration %>
+                <%= booking.total_price %>
+                <%= booking.address %>
+                <!-- first solution to only display the booking that hasn't been rated yet-->
+                <%# if @reviews.where(booking_id: booking.id).empty? %>
+                <!-- second solution to only display the booking that hasn't been rated yet -->
+                <% unless booking.review != nil? %>
+                <%= link_to 'leave review', new_booking_review_path(booking)%>
+                <% end %>
+              </li>
+              <% end %>
+            </ul>
+            <h2>Your Services</h2>
+            <ul class="ul2">
+              <% @services.each do |service| %>
+              <li >
+                <%= service.title %>
+                <%= service.price_per_hour %>
+                <%= service.description %>
+                <%= service.location %>
+                <%= link_to 'x', service_path(service), class: 'btn btn-sm btn-danger', method: :delete %>
+              </li>
+              <% end %>
+            </ul>
 
-  <%= link_to 'Create a Service', new_service_path, class: 'btn btn-primary'  %>
-
-</span>
-</body>
+            <%= link_to 'Create a Service', new_service_path, class: 'btn btn-primary'  %>
+          </div>
+        </div>
+      </div>
+    </span>
+  </body>
 
