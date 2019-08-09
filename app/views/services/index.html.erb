@@ -6,11 +6,11 @@
       <% @services.each do |service| %>
         <%= link_to service_path(service.id) do %>
           <div class="card-service">
-            <%= cl_image_tag service.photo, height: 200, width: 400, crop: :fill %>
+            <%= cl_image_tag service.photo, width: 400, crop: :fill %>
             <div class="card-service-infos">
               <div>
                 <h2><%= service.title %></h2>
-                <p><%= service.description %></p>
+                <p><%= service.description[0..20]%>...</p>
                 <p id="links">
                   <% if policy(service).edit? %>
                     <%= link_to "Update", edit_service_path(service) %>
@@ -26,8 +26,6 @@
             </div>
           </div>
         <% end %>
-
-
 
       <% end  %>
   </div>
