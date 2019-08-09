@@ -86,20 +86,20 @@
 
 require 'open-uri'
 
-puts "Destroy services"
-Service.destroy_all if Rails.env.development?
+# puts "Destroy services"
+# Service.destroy_all if Rails.env.development?
 
-puts "Destroy Bookings"
-Booking.destroy_all if Rails.env.development?
+# puts "Destroy Bookings"
+# Booking.destroy_all if Rails.env.development?
 
-puts "Destroy Users"
-User.destroy_all if Rails.env.development?
+# puts "Destroy Users"
+# User.destroy_all if Rails.env.development?
 
-puts "Destroy Reviews"
-Review.destroy_all if Rails.env.development?
+# puts "Destroy Reviews"
+# Review.destroy_all if Rails.env.development?
 
-puts "Destroy Categories"
-Category.destroy_all if Rails.env.development?
+# puts "Destroy Categories"
+# Category.destroy_all if Rails.env.development?
 
 category_attributes = [
    {
@@ -155,46 +155,45 @@ user_attributes = [
 Category.create!(category_attributes)
 User.create!(user_attributes)
 
-services_attributes = [
-  {
-    title: 'Cinderella for your kids!',
-    price_per_hour: 30,
-    location: 'Paris',
-    description: 'I can be Cinderella and entertain your kids',
-    category_id: '4',
-    user_id: '2',
-    photo: "https://i.pinimg.com/originals/67/85/61/6785610c23253e5a94fc8e2e6ca85ab1.jpg"
-  },
+service_1 = Service.new(
+  title: "Cinderella for your kids!",
+  price_per_hour: 30,
+  location: "Paris",
+  description: "I can be Cinderella and entertain your kids",
+  user_id: '2',
+  category_id: '1'
+)
+service_1.remote_photo_url = "https://i.pinimg.com/originals/67/85/61/6785610c23253e5a94fc8e2e6ca85ab1.jpg"
+service_1.save!
 
-  {
-    title: 'Clown for kids',
-    price_per_hour: 25,
-    location: 'Paris',
-    description:'Playing the clown for your kids',
-    category_id: '6',
-    user_id: '4'
-  }
-]
-
-Service.create!(services_attributes)
+service_2 = Service.new(
+  title: "Photo model",
+  price_per_hour: 5,
+  location: "Canggu",
+  description: "I am a professional photo model",
+  user_id: '1',
+  category_id: '2'
+)
+service_2.remote_photo_url = "https://i.pinimg.com/736x/e5/6b/79/e56b799b365e63c41041feb38fb7e965--guy-models-men-fashion.jpg"
+service_2.save!
 
 booking_attributes = [
   {
     start_time: DateTime.now,
     duration: 5,
-    total_price: 300,
-    address: 'Echo Beach Club, Canggu',
-    user_id: 3,
+    address: '50 rue Matignon, Paris',
+    user_id: 4,
+    total_price: 150,
     service_id: 1
   },
 
   {
     start_time: DateTime.now,
-    duration: 5,
-    total_price: 300,
-    address: '3 rue de la Boetie, Paris 15e',
-    user_id: 4,
-    service_id: 2
+    duration: 2,
+    address: '3 rue de la Boetie, Paris',
+    user_id: 3,
+    total_price: 60,
+    service_id: 1
   }
 ]
 
