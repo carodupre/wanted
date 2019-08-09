@@ -1,6 +1,39 @@
 #page-title {
-  font-family: 'Pattaya', sans-serif;
+  font-family: 'Ubuntu Condensed', sans-serif;
   font-weight: 22px;
-  margin: 20px 30px;
+  color: #622d32;
 }
 
+#body-header {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-weight: 22px;
+<<<<<<< HEAD
+  margin: 20px 30px;
+=======
+  color: #622d32;
+}
+
+#logo-style {
+  font-family: 'Pattaya', sans-serif;
+  font-size: 50px;
+}
+
+#booking-page {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-weight: 50px;
+  color: #622d32;
+  text-decoration: underline;
+>>>>>>> 757fb822fcd1f857520ddcf3f9de463b981ac8b6
+}
+
+#booking-body {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-weight: 50px;
+  color: #622d32;
+  font-size: 25px
+}
+
+#total-price {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  text-decoration: underline;
+}
