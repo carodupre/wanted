@@ -1,25 +1,25 @@
-<div>
-  <ul class="list-inline">
-    <!-- pundit so only owner of a service can edit and delete a service -->
-    <% if policy(@service).edit? %>
-    <li class="list-inline item"><%= link_to 'Edit service', edit_service_path(@service.id) %></li>
-    <% end %>
-    <li class="list-inline item"><%= link_to 'Back', services_path %></li>
-    <% if policy(@service).destroy? %>
-    <li class="list-inline item"><%= link_to 'Delete service', @service, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </li>
-  </ul>
+
+
+
+<div class="main-container m-4">
+
+  <div class="service-image mr-4">
+  <%= cl_image_tag @service.photo, height: 300, width: 400, crop: :fill %>
+  </div>
+
+  <div class="card-service-infos">
+
+    <h1 id="page-title"><%= @service.title %></h1>
+    <h2>Provided by:<%= @service.user.username %></h2>
+    <p><%= @service.description %></p>
+    <h3><%= @service.location %></h3>
+    <h3><%= @service.category.name %></h3>
+    $<%= @service.price_per_hour %>
+  </div>
+
 </div>
 
-<div>
-  <h1><%= @service.title %>
-  <p><%= @service.description %></p>
-  <p><%= @service.location %></h1>
-  <p><%= @service.category.name %></h1>
-  <p><%= @service.price_per_hour %></h1>
-  <div><%= cl_image_tag @service.photo, height: 300, width: 400, crop: :fill %></div>
-</div>
+
 
 <!-- pundit so someone cannot rent his own service -->
 <% unless policy(@service).update? %>
@@ -41,3 +41,15 @@
   <% end %>
 
 <% end %>
+
+
+<div>
+    <!-- pundit so only owner of a service can edit and delete a service -->
+    <% if policy(@service).edit? %>
+      <%= link_to 'Edit service', edit_service_path(@service.id), class: "btn btn-primary" %>
+    <% end %>
+      <%= link_to 'Back', services_path, class: "btn btn-primary" %>
+    <% if policy(@service).destroy? %>
+      <%= link_to 'Delete service', @service, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+      <% end %>
+</div>
