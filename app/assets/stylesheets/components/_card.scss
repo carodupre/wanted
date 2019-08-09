@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-}
+  }
 
 
 .card-category {
@@ -17,8 +17,10 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  font-family: 'Jacques Francois', serif;
+  opacity: 0.9;
+  }
 
 
 // Smallest device
@@ -27,6 +29,7 @@
     grid-template-columns: 1fr;
   }
 }
+
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
@@ -55,4 +58,3 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-

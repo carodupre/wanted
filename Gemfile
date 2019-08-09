@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
+gem 'pg_search'
 gem 'geocoder'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
@@ -20,7 +21,6 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'devise'
-gem 'carrierwave', '~> 1.2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
