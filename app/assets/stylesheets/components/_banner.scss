@@ -1,37 +1,30 @@
-
 .container-banner {
     background-size: cover;
     background-position: bottom;
     height: 95vh;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding-left: 62px;
     padding-bottom: 95px;
   }
-
   .container-search {
     width: 40%;
     display: flex;
   }
 
 .container-banner h1 {
-
     background-color: transparent;
     color: #622D32;
     font-size: 48px;
     font-family: 'Jacques Francois', serif;
   }
-
-
   .search-white-bar {
     height: 44px;
     width: 70%;
     border-radius: 8px 0 0 8px;
     border-color: transparent;
 }
-
 .search-button {
   background-color: white;
   font-family: "Open Sans", "Helvetica", "sans-serif";
@@ -42,6 +35,3 @@
   border-radius: 0 8px 8px 0;
   padding-top: 10px;
 }
-
-
-

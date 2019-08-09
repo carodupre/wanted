@@ -1,16 +1,16 @@
-<h1> Reservation n°<%= @booking.id %> - Booked on the <%= @booking.created_at.strftime("%d/%m/%Y") %> </h1>
+<h1 id="booking-page"> Reservation n°<%= @booking.id %> - Booked on the <%= @booking.created_at.strftime("%d/%m/%Y") %> </h1>
 
-<h1> <%= @service.title %> </h1>
+<h1 id="booking-body"> <%= @service.title %> </h1>
 
-<h1>Reservation made by: <%= User.find(@booking.user_id).username.capitalize %></h1>
+<h1 id="booking-body">Reservation made by: <%= User.find(@booking.user_id).username.capitalize %></h1>
 
-<h1>Name of the person booked: <%= User.find(@service.user_id).username.capitalize%></h1>
+<h1 id="booking-body">Name of the person booked: <%= User.find(@service.user_id).username.capitalize%></h1>
 
-<h1> Category: <%= Category.find(@service.category_id).name.capitalize %></h1>
+<h1 id="booking-body"> Category: <%= Category.find(@service.category_id).name.capitalize %></h1>
 
 
-<h1> Event date: <%= @booking.start_time.strftime("%A, %d %b %Y %l:%M %p") %></h1>
-<h1> Event address: <%= @booking.address %></h1>
+<h1 id="booking-body"> Event date: <%= @booking.start_time.strftime("%A, %d %b %Y %l:%M %p") %></h1>
+<h1 id="booking-body"> Event address: <%= @booking.address %></h1>
 
 <h1>Total price: <%= @booking.total_price %> € (<%= @service.price_per_hour %>€ for <%= @booking.duration %> hours)</h1>
 
