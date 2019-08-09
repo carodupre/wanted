@@ -1,35 +1,33 @@
-<!-- <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p> -->
-
-<!-- #Navbar -------------- -->
-
-<!-- -------------Banner---------------------- -->
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1353361/pexels-photo-1353361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);">
-
-  <div class="container">
-    <h1>World renowned <strong> "Wanted" cater for all of your entertainment requirements</strong>!</h1>
-    <p>(Huffington Post April 2019)</p>
-    <!-- <a href="..." button type="button" class="btn btn-primary btn-lg btn-block">Category</a> -->
 
 
-    <%= form_tag services_path, method: :get do %>
+<div class="container-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/1353361/pexels-photo-1353361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);">
+
+  <div>
+  <h1>Who is gonna work for you today?</h1>
+  </div>
+
+  <div class="container-search">
+    <div>
+     <%= form_tag services_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control",
-        placeholder: "What can we help you find today?"
+        class: "search-white-bar",
+        placeholder: ""
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
+    <div>
+    <%= submit_tag "search",
+    class: "search-button" %>
     <% end %>
-
+    </div>
   </div>
+
 </div>
 
 <!-- Cards --------- Easy find ----------- -->
 <div class="container my-4">
   <div class="prospect request">
-  <strong>What can we help you find today?</strong>
-  <h1>Take a look below <strong>at </strong> our top trending <strong> offerings!</strong>!</h1> </h1>
+  <h1 id="page-title">Top categories</h1>
   </div>
 </div>
 
@@ -73,4 +71,5 @@
   </div>
   </div>
 </div>
+
 

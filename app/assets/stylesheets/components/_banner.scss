@@ -1,28 +1,49 @@
-.banner {
-  background-size: cover;
-  background-position: center;
-  padding: 100px 0;
-  // margin: 4px;
-  // border-radius: 4px;
+
+.container-banner {
+    background-size: cover;
+    background-position: bottom;
+    height: 95vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 62px;
+    padding-bottom: 95px;
+  }
+
+.container-banner h1 {
+
+    background-color: transparent;
+    color: #622D32;
+    font-size: 48px;
+    font-family: 'Jacques Francois', serif;
+  }
+
+
+  .container-search {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .search-white-bar {
+    height: 44px;
+    width: 200%;
+    border-radius: 13px;
+    border-color: transparent;
+    background-opacity: 0,6;
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  // text-position: center;
-  font-size: 32px;
-  font-weight: bold;
+.search-button {
+  background-color: transparent;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  text-decoration: none;
+  font-weight: 22px;
+  color: #476D85;
+  border: none;
+  margin-left: -10vh;
+  padding-left: 183px;
+  padding-top: 10px;
 }
 
-.banner p {
-  font-size: 16px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
 
-.banner btn {
-  // justify-content: center;
-  // margin: 16px;
-}
+

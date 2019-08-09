@@ -1,6 +1,10 @@
 .navbar-lewagon {
-  justify-content: space-between;
+  justify-content: flex-start;
   background: white;
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+  padding: 25px 15 px 15 px 25px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +12,22 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+
+}
+
+.navbar-brand h1 {
+  font-family: 'Pattaya', sans-serif;
+  font-weight: 80px;
+  padding: 0px 0px;
+}
+
+.navbar-brand {
+  padding: 0px 0px;
+}
+
+.navbar-lewagon {
+
+    justify-content: space-between;
+    background: white;
+    padding: 1px 15px 0px 15px;
 }
